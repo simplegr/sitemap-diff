@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+.pnpm/
+
+# Output
+dist/
+build/
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Env vars
+.env
+.env.local
+.env.*.local
+
+# VSCode settings (optional)
+.vscode/
+
+# Mac/Linux hidden files
+*.swp
+
+# Output
+/diff-output.json
