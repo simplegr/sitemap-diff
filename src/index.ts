@@ -65,6 +65,27 @@ async function run() {
     }
   }
 
+  const set1 = new Set(urls1.map((url) => new URL(url).pathname))
+  const set2 = new Set(urls2.map((url) => new URL(url).pathname))
+
+  const onlyInSite1 = [...set1].filter((path) => !set2.has(path))
+  const onlyInSite2 = [...set2].filter((path) => !set1.has(path))
+
+  if (onlyInSite1.length > 0 || onlyInSite2.length > 0) {
+    console.log("\n🔍 URL Presence Comparison")
+    console.log("──────────────────────────")
+
+    if (onlyInSite1.length > 0) {
+      console.log(`🟥 ${onlyInSite1.length} URL(s) only in sitemap 1:`)
+      onlyInSite1.forEach((path) => console.log(`  ↳ ${path}`))
+    }
+
+    if (onlyInSite2.length > 0) {
+      console.log(`🟦 ${onlyInSite2.length} URL(s) only in sitemap 2:`)
+      onlyInSite2.forEach((path) => console.log(`  ↳ ${path}`))
+    }
+  }
+
   console.log("\n📊 Summary")
   console.log("───────────────")
   console.log(`🔗 Pages compared:       ${pages1.length}`)
